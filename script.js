@@ -122,7 +122,7 @@ document.querySelectorAll("button")[3].addEventListener("click", rbg);
 document.querySelectorAll("button")[4].addEventListener("click", bgr);
 document.querySelectorAll("button")[5].addEventListener("click", gbr);
 document.querySelectorAll("button")[6].addEventListener("click", grb);
-document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
+//document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
 document.querySelectorAll("button")[8].addEventListener("click", clearChanges);
 document.querySelectorAll("button")[9].addEventListener("click", download);
 
