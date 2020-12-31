@@ -101,20 +101,7 @@ function grb() {
   ctx.putImageData(imageData, 0, 0);
 }
 
-function contrastImage(imageData, contrast) {  // contrast as an integer percent  
-  var data = imageData.data;  // original array modified, but canvas not updated
-  contrast *= 2.55; // or *= 255 / 100; scale integer percent to full range
-  var factor = (255 + contrast) / (255.01 - contrast);  //add .1 to avoid /0 error
-
-  for(var i=0;i<data.length;i+=4)  //pixel values in 4-byte blocks (r,g,b,a)
-  {
-      data[i] = factor * (data[i] - 128) + 128;     //r value
-      data[i+1] = factor * (data[i+1] - 128) + 128; //g value
-      data[i+2] = factor * (data[i+2] - 128) + 128; //b value
-
-  }
-  return imageData;  //optional (e.g. for filter function chaining)
-}
+//add contrast function here
 
 function clearChanges() {
   img.src = reader.result;
