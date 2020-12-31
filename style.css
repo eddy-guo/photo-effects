@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background: gray;
+  background: #3c2f2f;
   display: flex;
   flex-direction: column;
 }
@@ -18,18 +18,18 @@ aside {
 }
 
 button {
-  background: rgb(21, 20, 20);
+  background: #be9b7b;
   text-align: left;
   padding: 1.6rem 0 1.6rem 2rem;
   font-size: 1.6rem;
   cursor: pointer;
-  color: white;
+  color: black;
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: 1.2px solid;
 }
 
 button:hover {
-  background: rgb(50, 47, 47);
+  background: #adcefd;
 }
 
 .effects {
@@ -54,7 +54,7 @@ label {
 }
 
 .input-wrapper {
-  background: gray;
+  background: #ffe0b8;
   padding: 1.6rem;
 }
 
