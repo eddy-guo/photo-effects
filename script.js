@@ -101,6 +101,18 @@ function grb() {
   ctx.putImageData(imageData, 0, 0);
 }
 
+function contrastImage() {
+  const data = imgData.data;
+  contrast = contrast / 100 + 1;
+  var intercept = 128 * (1 - contrast);
+  for (let i = 0; i < data.length; i += 4) {
+    data[i] = data[i] * contrast + intercept;
+    data[i + 1] = data[i + 1] * contrast + intercept;
+    data[i + 2] = data[i + 2] * contrast + intercept;
+  }
+  ctx.putImageData(imageData, 0, 0);
+}
+
 function clearChanges() {
   img.src = reader.result;
 }
@@ -120,8 +132,9 @@ document.querySelectorAll("button")[3].addEventListener("click", rbg);
 document.querySelectorAll("button")[4].addEventListener("click", bgr);
 document.querySelectorAll("button")[5].addEventListener("click", gbr);
 document.querySelectorAll("button")[6].addEventListener("click", grb);
-document.querySelectorAll("button")[7].addEventListener("click", clearChanges);
-document.querySelectorAll("button")[8].addEventListener("click", download);
+document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
+document.querySelectorAll("button")[8].addEventListener("click", clearChanges);
+document.querySelectorAll("button")[9].addEventListener("click", download);
 
 const imageLoader = document.getElementById("uploader");
 imageLoader.addEventListener("change", uploadImage);
