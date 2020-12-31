@@ -77,11 +77,24 @@ function bgr() {
   ctx.putImageData(imageData, 0, 0);
 }
 
+function gbr() {
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const red = data[i];
+    data[i] = data[i + 1];
+    data[i + 1] = data[i + 2];
+    data[i + 2] = red;
+  }
+  ctx.putImageData(imageData, 0, 0);
+}
+
 document.querySelectorAll("button")[0].addEventListener("click", greyscale);
 document.querySelectorAll("button")[1].addEventListener("click", sepia);
 document.querySelectorAll("button")[2].addEventListener("click", invert);
 document.querySelectorAll("button")[3].addEventListener("click", rbg);
 document.querySelectorAll("button")[4].addEventListener("click", bgr);
+document.querySelectorAll("button")[5].addEventListener("click", gbr);
 
 const imageLoader = document.getElementById("uploader");
 imageLoader.addEventListener("change", uploadImage);
