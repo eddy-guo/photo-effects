@@ -101,18 +101,16 @@ function grb() {
   ctx.putImageData(imageData, 0, 0);
 }
 
-function contrastImage() {
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-  for (let i = 0; i < data.length; i += 4) {
-    const contrast = 10;
-    contrast = contrast / 100 + 1;
-    var intercept = 128 * (1 - contrast);
-    data[i] = data[i] * contrast + intercept;
-    data[i + 1] = data[i + 1] * contrast + intercept;
-    data[i + 2] = data[i + 2] * contrast + intercept;
+function contrastImage(imgData, contrast){  //input range [-100..100]
+  var d = imgData.data;
+  contrast = (contrast/100) + 1;  //convert to decimal & shift range: [0..2]
+  var intercept = 128 * (1 - contrast);
+  for(var i=0;i<d.length;i+=4){   //r,g,b,a
+      d[i] = d[i]*contrast + intercept;
+      d[i+1] = d[i+1]*contrast + intercept;
+      d[i+2] = d[i+2]*contrast + intercept;
   }
-  ctx.putImageData(imageData, 0, 0);
+  return imgData;
 }
 
 function clearChanges() {
