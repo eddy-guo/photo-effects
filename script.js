@@ -102,10 +102,12 @@ function grb() {
 }
 
 function contrastImage() {
-  const data = imgData.data;
-  contrast = contrast / 100 + 1;
-  var intercept = 128 * (1 - contrast);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
   for (let i = 0; i < data.length; i += 4) {
+    const contrast = 10;
+    contrast = contrast / 100 + 1;
+    var intercept = 128 * (1 - contrast);
     data[i] = data[i] * contrast + intercept;
     data[i + 1] = data[i + 1] * contrast + intercept;
     data[i + 2] = data[i + 2] * contrast + intercept;
