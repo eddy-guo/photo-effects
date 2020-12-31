@@ -18,14 +18,14 @@ aside {
 }
 
 button {
-  text-align: left;
   background: rgb(21, 20, 20);
+  text-align: left;
   padding: 1.6rem 0 1.6rem 2rem;
   font-size: 1.6rem;
   cursor: pointer;
   color: white;
   border: none;
-  border-bottom: 1px;
+  border-bottom: 1px solid;
 }
 
 button:hover {
