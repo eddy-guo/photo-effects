@@ -120,6 +120,8 @@ function contrastImage() {
   ctx.putImageData(imageData, 0, 0);
 }
 
+// brightness function here
+
 function clearChanges() {
   img.src = reader.result;
 }
@@ -140,8 +142,9 @@ document.querySelectorAll("button")[4].addEventListener("click", bgr);
 document.querySelectorAll("button")[5].addEventListener("click", gbr);
 document.querySelectorAll("button")[6].addEventListener("click", grb);
 document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
-document.querySelectorAll("button")[8].addEventListener("click", clearChanges);
-document.querySelectorAll("button")[9].addEventListener("click", download);
+//document.querySelectorAll("button")[8].addEventListener("click", brightness);
+document.querySelectorAll("button")[9].addEventListener("click", clearChanges);
+document.querySelectorAll("button")[10].addEventListener("click", download);
 
 const imageLoader = document.getElementById("uploader");
 imageLoader.addEventListener("change", uploadImage);
