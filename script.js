@@ -101,7 +101,24 @@ function grb() {
   ctx.putImageData(imageData, 0, 0);
 }
 
-//add contrast function here
+function contrastImage() {
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const contrast = 10;
+    const average = Math.round((data[i] + data[i + 1] + data[i + 2]) / 3);
+    if (average > 127) {
+      data[i] += (data[i] / average) * contrast;
+      data[i + 1] += (data[i + 1] / average) * contrast;
+      data[i + 2] += (data[i + 2] / average) * contrast;
+    } else {
+      data[i] -= (data[i] / average) * contrast;
+      data[i + 1] -= (data[i + 1] / average) * contrast;
+      data[i + 2] -= (data[i + 2] / average) * contrast;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+}
 
 function clearChanges() {
   img.src = reader.result;
@@ -122,7 +139,7 @@ document.querySelectorAll("button")[3].addEventListener("click", rbg);
 document.querySelectorAll("button")[4].addEventListener("click", bgr);
 document.querySelectorAll("button")[5].addEventListener("click", gbr);
 document.querySelectorAll("button")[6].addEventListener("click", grb);
-//document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
+document.querySelectorAll("button")[7].addEventListener("click", contrastImage);
 document.querySelectorAll("button")[8].addEventListener("click", clearChanges);
 document.querySelectorAll("button")[9].addEventListener("click", download);
 
