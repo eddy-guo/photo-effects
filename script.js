@@ -145,3 +145,4 @@ document.querySelectorAll("button")[9].addEventListener("click", download);
 
 const imageLoader = document.getElementById("uploader");
 imageLoader.addEventListener("change", uploadImage);
+
